@@ -2,7 +2,7 @@
 
 namespace WebBrowserWPF.Base
 {
-    public interface IWebBrowser
+    public interface IMyBrowser
     {
         Uri MainUrl { get; set; }
         void Home();

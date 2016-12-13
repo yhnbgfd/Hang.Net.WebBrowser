@@ -42,7 +42,7 @@ namespace WebBrowserWPF.Views.Pages
                     {
                         var split = web.Split(new[] { '=' }, 2);
 
-                        IWebBrowser wb;
+                        IMyBrowser wb;
                         if (kernel == "IE")
                         {
                             wb = new WinFormWebBrowserUserControl()
@@ -87,22 +87,22 @@ namespace WebBrowserWPF.Views.Pages
 
         private void Button_Home_Click(object sender, RoutedEventArgs e)
         {
-            var wb = (TabControl_Main.SelectedItem as TabItem).Content as IWebBrowser;
+            var wb = (TabControl_Main.SelectedItem as TabItem).Content as IMyBrowser;
             wb.Home();
         }
         private void Button_Refresh_Click(object sender, RoutedEventArgs e)
         {
-            var wb = (TabControl_Main.SelectedItem as TabItem).Content as IWebBrowser;
+            var wb = (TabControl_Main.SelectedItem as TabItem).Content as IMyBrowser;
             wb.Refresh();
         }
         private void Button_GoBack_Click(object sender, RoutedEventArgs e)
         {
-            var wb = (TabControl_Main.SelectedItem as TabItem).Content as IWebBrowser;
+            var wb = (TabControl_Main.SelectedItem as TabItem).Content as IMyBrowser;
             wb.GoBack();
         }
         private void Button_GoForward_Click(object sender, RoutedEventArgs e)
         {
-            var wb = (TabControl_Main.SelectedItem as TabItem).Content as IWebBrowser;
+            var wb = (TabControl_Main.SelectedItem as TabItem).Content as IMyBrowser;
             wb.GoForward();
         }
 

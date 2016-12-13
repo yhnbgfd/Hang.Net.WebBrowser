@@ -42,7 +42,7 @@ namespace WebBrowserWPF.Views.Pages
                     {
                         var split = web.Split(new[] { '=' }, 2);
 
-                        IWebBrowser wb;
+                        IMyBrowser wb;
                         if (kernel == "IE")
                         {
                             wb = new WinFormWebBrowserUserControl()

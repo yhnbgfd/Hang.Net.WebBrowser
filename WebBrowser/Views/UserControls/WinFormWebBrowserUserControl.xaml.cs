@@ -1,12 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using WebBrowserWPF.Base;
 
 namespace WebBrowserWPF.Views.UserControls
 {
-    public partial class WinFormWebBrowserUserControl : UserControl, IWebBrowser
+    public partial class WinFormWebBrowserUserControl : UserControl, IMyBrowser
     {
         private bool _isFirstLoad = true;
 
@@ -29,7 +30,10 @@ namespace WebBrowserWPF.Views.UserControls
             {
                 System.Windows.Forms.WebBrowser webBrowser_temp = (System.Windows.Forms.WebBrowser)sender;
                 string newUrl = webBrowser_temp.Document.ActiveElement.GetAttribute("href");
-                WebBrowser_Main.Url = new Uri(newUrl);
+                if (!AppData.PopupUrl.Any(s => s == newUrl))
+                {
+                    WebBrowser_Main.Url = new Uri(newUrl);
+                }
             }
             catch (Exception ex)
             {

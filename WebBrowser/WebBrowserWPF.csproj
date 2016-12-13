@@ -81,7 +81,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Base\IWebBrowser.cs" />
+    <Compile Include="Base\AppData.cs" />
+    <Compile Include="Base\IMyBrowser.cs" />
     <Compile Include="Base\Ini.cs" />
     <Compile Include="Views\Pages\BrowserPage1.xaml.cs">
       <DependentUpon>BrowserPage1.xaml</DependentUpon>
@@ -190,6 +191,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bank_logo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="弹出窗地址.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

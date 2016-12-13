@@ -16,10 +16,19 @@ namespace WebBrowserWPF.Views.Windows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "网页地址.txt");
-            if (File.Exists(file))
             {
-                TextBox_Webs.Text = File.ReadAllText(file);
+                var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "网页地址.txt");
+                if (File.Exists(file))
+                {
+                    TextBox_Webs.Text = File.ReadAllText(file);
+                }
+            }
+            {
+                var popupFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "弹出窗地址.txt");
+                if (File.Exists(popupFile))
+                {
+                    TextBox_PopupWebs.Text = File.ReadAllText(popupFile);
+                }
             }
 
             PasswordBox_Pwd.Focus();
@@ -72,6 +81,18 @@ namespace WebBrowserWPF.Views.Windows
         {
             IntPtr p = System.Runtime.InteropServices.Marshal.SecureStringToBSTR(password);
             return System.Runtime.InteropServices.Marshal.PtrToStringBSTR(p);
+        }
+
+        private void Button_SavePopup_Click(object sender, RoutedEventArgs e)
+        {
+            var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "弹出窗地址.txt");
+            if (!File.Exists(file))
+            {
+                File.CreateText(file);
+            }
+            File.WriteAllText(file, TextBox_Webs.Text);
+
+            MessageBox.Show("保存成功。");
         }
     }
 }

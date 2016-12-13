@@ -4,12 +4,14 @@
 using CefSharp;
 using CefSharp.WinForms;
 using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using WebBrowserWPF.Base;
 
 namespace WebBrowserWPF.Views.UserControls
 {
-    public partial class CefSharpUserControl : UserControl, Base.IWebBrowser
+    public partial class CefSharpUserControl : UserControl, IMyBrowser
     {
         private bool _isFirstLoad = true;
         public ChromiumWebBrowser chromeBrowser;
@@ -50,7 +52,7 @@ namespace WebBrowserWPF.Views.UserControls
 
         public void Refresh()
         {
-            chromeBrowser.Refresh();
+            chromeBrowser.Load(chromeBrowser.Address);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -81,7 +83,12 @@ namespace WebBrowserWPF.Views.UserControls
 
             public bool OnBeforePopup(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, string targetFrameName, WindowOpenDisposition targetDisposition, bool userGesture, IPopupFeatures popupFeatures, IWindowInfo windowInfo, IBrowserSettings browserSettings, ref bool noJavascriptAccess, out IWebBrowser newBrowser)
             {
-                Browser.Load(targetUrl);
+                Console.WriteLine("拦截弹出窗：" + targetUrl);
+
+                if (!AppData.PopupUrl.Any(s => s == targetUrl))
+                {
+                    Browser.Load(targetUrl);
+                }
 
                 newBrowser = null;
                 return true;
