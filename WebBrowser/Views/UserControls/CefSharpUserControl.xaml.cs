@@ -40,6 +40,10 @@ namespace WebBrowserWPF.Views.UserControls
         public void Home()
         {
             chromeBrowser = new ChromiumWebBrowser(MainUrl.ToString());
+            chromeBrowser.LifeSpanHandler = new LifeSpanHandler()
+            {
+                Browser = chromeBrowser
+            };
             wfh.Child = chromeBrowser;
         }
 
@@ -54,6 +58,32 @@ namespace WebBrowserWPF.Views.UserControls
             {
                 _isFirstLoad = false;
                 Home();
+            }
+        }
+
+        internal class LifeSpanHandler : ILifeSpanHandler
+        {
+            public ChromiumWebBrowser Browser { get; set; }
+
+            public bool DoClose(IWebBrowser browserControl, IBrowser browser)
+            {
+                return true;
+            }
+
+            public void OnAfterCreated(IWebBrowser browserControl, IBrowser browser)
+            {
+            }
+
+            public void OnBeforeClose(IWebBrowser browserControl, IBrowser browser)
+            {
+            }
+
+            public bool OnBeforePopup(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, string targetFrameName, WindowOpenDisposition targetDisposition, bool userGesture, IPopupFeatures popupFeatures, IWindowInfo windowInfo, IBrowserSettings browserSettings, ref bool noJavascriptAccess, out IWebBrowser newBrowser)
+            {
+                Browser.Load(targetUrl);
+
+                newBrowser = null;
+                return true;
             }
         }
     }
