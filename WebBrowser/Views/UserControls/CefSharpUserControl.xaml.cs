@@ -44,6 +44,7 @@ namespace WebBrowserWPF.Views.UserControls
             {
                 Browser = chromeBrowser
             };
+            chromeBrowser.MenuHandler = new ContextMenuHandler();
             wfh.Child = chromeBrowser;
         }
 
@@ -83,6 +84,27 @@ namespace WebBrowserWPF.Views.UserControls
                 Browser.Load(targetUrl);
 
                 newBrowser = null;
+                return true;
+            }
+        }
+
+        internal class ContextMenuHandler : IContextMenuHandler
+        {
+            public void OnBeforeContextMenu(IWebBrowser browserControl, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model)
+            {
+            }
+
+            public bool OnContextMenuCommand(IWebBrowser browserControl, IBrowser browser, IFrame frame, IContextMenuParams parameters, CefMenuCommand commandId, CefEventFlags eventFlags)
+            {
+                return true;
+            }
+
+            public void OnContextMenuDismissed(IWebBrowser browserControl, IBrowser browser, IFrame frame)
+            {
+            }
+
+            public bool RunContextMenu(IWebBrowser browserControl, IBrowser browser, IFrame frame, IContextMenuParams parameters, IMenuModel model, IRunContextMenuCallback callback)
+            {
                 return true;
             }
         }
