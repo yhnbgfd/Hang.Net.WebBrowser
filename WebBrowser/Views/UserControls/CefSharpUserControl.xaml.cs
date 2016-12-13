@@ -45,7 +45,7 @@ namespace WebBrowserWPF.Views.UserControls
 
         public void Refresh()
         {
-
+            chromeBrowser.Refresh();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

@@ -19,6 +19,8 @@ namespace WebBrowserWPF.Views.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            var kernel = Ini.ReadValue("System", "Kernel");
+
             string[] webs = new string[0];
             var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "网页地址.txt");
             if (File.Exists(file))
@@ -40,10 +42,21 @@ namespace WebBrowserWPF.Views.Pages
                     {
                         var split = web.Split(new[] { '=' }, 2);
 
-                        IWebBrowser wb = new CefSharpUserControl()
+                        IWebBrowser wb;
+                        if (kernel == "IE")
                         {
-                            MainUrl = new Uri(split[1])
-                        };
+                            wb = new WinFormWebBrowserUserControl()
+                            {
+                                MainUrl = new Uri(split[1])
+                            };
+                        }
+                        else//Chrome
+                        {
+                            wb = new CefSharpUserControl()
+                            {
+                                MainUrl = new Uri(split[1])
+                            };
+                        }
 
                         TabControl_Main.Items.Add(new TabItem()
                         {
