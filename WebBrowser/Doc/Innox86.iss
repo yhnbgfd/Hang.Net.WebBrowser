@@ -28,8 +28,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "C:\WorkSpacesC\PanSvn\tvm-cash\trunk\Test\WebBrowser\WebBrowser\bin\x86\Release\WebBrowserWPF.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkSpacesC\PanSvn\tvm-cash\trunk\Test\WebBrowser\WebBrowser\bin\x86\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\bin\x86\Release\WebBrowserWPF.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\bin\x86\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
