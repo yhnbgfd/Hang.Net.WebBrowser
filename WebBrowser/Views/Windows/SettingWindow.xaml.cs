@@ -32,6 +32,7 @@ namespace WebBrowserWPF.Views.Windows
             }
 
             PasswordBox_Pwd.Focus();
+            ReadUSBState();
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)
@@ -93,6 +94,35 @@ namespace WebBrowserWPF.Views.Windows
             File.WriteAllText(file, TextBox_Webs.Text);
 
             MessageBox.Show("保存成功。");
+        }
+
+        private void Button_EnabledUSB_Click(object sender, RoutedEventArgs e)
+        {
+            RegeditHelper.RegToRunUSB();
+            ReadUSBState();
+        }
+
+        private void Button_DisabledUSB_Click(object sender, RoutedEventArgs e)
+        {
+            RegeditHelper.RegToStopUSB();
+            ReadUSBState();
+        }
+
+        private void ReadUSBState()
+        {
+            var ret = RegeditHelper.ReadUSBState();
+            if (ret == true)
+            {
+                TextBlock_USBState.Text = "启用";
+            }
+            else if (ret == false)
+            {
+                TextBlock_USBState.Text = "禁用";
+            }
+            else
+            {
+                TextBlock_USBState.Text = "读取USB状态需要系统管理员权限";
+            }
         }
     }
 }
