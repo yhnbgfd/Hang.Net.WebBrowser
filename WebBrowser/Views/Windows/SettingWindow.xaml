@@ -29,6 +29,7 @@
                                     <Button x:Name="Button_DisabledUSB" Content="禁用USB存储设备" Padding="10,5" Margin="0,0,10,0" Click="Button_DisabledUSB_Click"/>
                                 </StackPanel>
                                 <TextBlock Text="* 读取USB状态，启用、禁用USB存储设备需要系统管理员权限。"/>
+                                <TextBlock Text="* 修改USB后请重启电脑。"/>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
