@@ -55,16 +55,41 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Grid x:Name="Grid_Password" Background="White" Visibility="Collapsed">
+        <Grid x:Name="Grid_Password" Background="White" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="请输入密码：" Margin="0,0,0,5" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="20"/>
+            <TextBlock Text="请输入密码：" Margin="0,0,0,5" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="24"/>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1">
-                <PasswordBox x:Name="PasswordBox_Pwd" Width="160" FontSize="20" VerticalContentAlignment="Center" Margin="5,0"/>
-                <Button x:Name="Button_ConfirmPassword" Content="确认" Width="76" Click="Button_ConfirmPassword_Click" Padding="1,3" FontSize="20" Margin="5,0"/>
+                <PasswordBox x:Name="PasswordBox_Pwd" Width="200" FontSize="24" VerticalContentAlignment="Center" Margin="5,0"/>
+                <Button x:Name="Button_ConfirmPassword" Content="确认" Click="Button_ConfirmPassword_Click" Padding="20,10" FontSize="24" Margin="5,0"/>
             </StackPanel>
+            <Grid Grid.Row="2" Background="White" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="1" FontSize="36" Click="Button_Num_Click" />
+                <Button Content="2" FontSize="36" Click="Button_Num_Click" Grid.Column="1" />
+                <Button Content="3" FontSize="36" Click="Button_Num_Click" Grid.Column="2" />
+                <Button Content="4" FontSize="36" Click="Button_Num_Click" Grid.Row="1" />
+                <Button Content="5" FontSize="36" Click="Button_Num_Click" Grid.Row="1" Grid.Column="1" />
+                <Button Content="6" FontSize="36" Click="Button_Num_Click" Grid.Row="1" Grid.Column="2" />
+                <Button Content="7" FontSize="36" Click="Button_Num_Click" Grid.Row="2" />
+                <Button Content="8" FontSize="36" Click="Button_Num_Click" Grid.Row="2" Grid.Column="1" />
+                <Button Content="9" FontSize="36" Click="Button_Num_Click" Grid.Row="2" Grid.Column="2" />
+                <Button Content="0" FontSize="36" Click="Button_Num_Click" Grid.Row="3" Grid.ColumnSpan="2" />
+                <Button Content="退格" FontSize="36" Click="Button_Backspace_Click" Grid.Row="3" Grid.Column="2" />
+            </Grid>
         </Grid>
     </Grid>
 </Window>
