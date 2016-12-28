@@ -7,10 +7,26 @@
              xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WebBrowserWPF;component/Themes/ButtonDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Grid>
-        <WindowsFormsHost>
+        <WindowsFormsHost Margin="0,0,60,0">
             <wf:WebBrowser x:Name="WebBrowser_Main" ScriptErrorsSuppressed="True" IsWebBrowserContextMenuEnabled="False" />
         </WindowsFormsHost>
+        <Grid HorizontalAlignment="Right" Width="60">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="Button_Up" Content="▲" Click="Button_Up_Click" Focusable="False" FontSize="24" Foreground="Black" Margin="0,0,0,0"/>
+            <Button x:Name="Button_Down" Content="▼" Grid.Row="1" Click="Button_Down_Click" Focusable="False" FontSize="24" Foreground="Black" Margin="0,0,0,0"/>
+        </Grid>
         <!--<WebBrowser x:Name="WebBrowser_Main"/>-->
     </Grid>
 </UserControl>
