@@ -17,7 +17,6 @@ namespace WebBrowserWPF.Views.Windows
         {
             InitializeComponent();
             InitializeWindow();
-            InitializeChromium();
         }
 
         private void InitializeWindow()
@@ -35,17 +34,14 @@ namespace WebBrowserWPF.Views.Windows
             }
         }
 
-        private void InitializeChromium()
-        {
-            //CefSettings settings = new CefSettings();
-            //// Initialize cef with the provided settings
-            //Cef.Initialize(settings);
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //隐藏任务栏
             IntPtr hTray = FindWindowA("Shell_TrayWnd", string.Empty);
-            ShowWindow(hTray, 0);　//隐藏任务栏
+            ShowWindow(hTray, 0);
+
+            //禁用触摸反馈
+            RegeditHelper.DisbledBouncing();
 
             Dispatcher.Invoke(new Action(() =>
             {
@@ -74,11 +70,13 @@ namespace WebBrowserWPF.Views.Windows
         private void Window_Closed(object sender, EventArgs e)
         {
             IntPtr hTray = FindWindowA("Shell_TrayWnd", string.Empty);
-            ShowWindow(hTray, 5);　//显示任务栏
+            ShowWindow(hTray, 5); //显示任务栏
 
-            //Cef.Shutdown();
+            //启用触摸反馈
+            RegeditHelper.EnabledBouncing();
         }
 
+        //http://www.cnblogs.com/waixingehao/archive/2011/10/12/2208598.html
         [DllImport("user32.dll", EntryPoint = "FindWindowA")]
         public static extern IntPtr FindWindowA(string lp1, string lp2);
         [DllImport("user32.dll", EntryPoint = "ShowWindow")]
@@ -94,6 +92,10 @@ namespace WebBrowserWPF.Views.Windows
                 ie.Kill();
             }
         }
-        //http://www.cnblogs.com/waixingehao/archive/2011/10/12/2208598.html
+
+        private void Window_ManipulationBoundaryFeedback(object sender, System.Windows.Input.ManipulationBoundaryFeedbackEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

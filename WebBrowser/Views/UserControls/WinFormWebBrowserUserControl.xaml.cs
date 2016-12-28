@@ -1,12 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Forms;
-using System.Windows.Navigation;
 using WebBrowserWPF.Base;
 
 namespace WebBrowserWPF.Views.UserControls
@@ -20,35 +13,34 @@ namespace WebBrowserWPF.Views.UserControls
         public WinFormWebBrowserUserControl()
         {
             InitializeComponent();
-            WebBrowser_Main.NewWindow += HandleWebBrowserNewWindow;
-            //WebBrowser_Main.DocumentCompleted += HandleDocumentCompleted;
-        }
 
-        private void HandleDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            //VScrollBar
-        }
-
-        /// <summary>
-        /// 拦截弹出窗口并在本地显示
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void HandleWebBrowserNewWindow(object sender, CancelEventArgs e)
-        {
-            try
+            //WinForm
+            WebBrowser_Main.NewWindow += (s, e) =>
             {
-                System.Windows.Forms.WebBrowser webBrowser_temp = (System.Windows.Forms.WebBrowser)sender;
-                string newUrl = webBrowser_temp.Document.ActiveElement.GetAttribute("href");
-                //if (!AppData.PopupUrl.Any(s => s == newUrl))
+                try
                 {
-                    WebBrowser_Main.Url = new Uri(newUrl);
-                    e.Cancel = true;
+                    System.Windows.Forms.WebBrowser webBrowser_temp = (System.Windows.Forms.WebBrowser)s;
+                    string newUrl = webBrowser_temp.Document.ActiveElement.GetAttribute("href");
+                    //if (!AppData.PopupUrl.Any(s => s == newUrl))
+                    {
+                        WebBrowser_Main.Url = new Uri(newUrl);
+                        e.Cancel = true;
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-            }
+                catch (Exception ex)
+                {
+                }
+            };
+
+            ////WPF
+            //WebBrowser_Main.Navigating += (s, e) =>
+            //{
+            //    FieldInfo fiComWebBrowser = typeof(WebBrowser).GetField("_axIWebBrowser2", BindingFlags.Instance | BindingFlags.NonPublic);
+            //    if (fiComWebBrowser == null) return;
+            //    object objComWebBrowser = fiComWebBrowser.GetValue(s as WebBrowser);
+            //    if (objComWebBrowser == null) return;
+            //    objComWebBrowser.GetType().InvokeMember("Silent", BindingFlags.SetProperty, null, objComWebBrowser, new object[] { true });
+            //};
         }
 
         public void Home()

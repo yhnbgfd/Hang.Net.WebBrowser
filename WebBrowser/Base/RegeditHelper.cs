@@ -71,5 +71,41 @@ namespace WebBrowserWPF.Base
                 return false;
             }
         }
+
+        public static bool EnabledBouncing()
+        {
+            try
+            {
+                RegistryKey regKey = Registry.CurrentUser;
+                string keyPath = @"Software\Microsoft\Wisp\Touch";
+                RegistryKey openKey = regKey.OpenSubKey(keyPath, true);
+                openKey.SetValue("Bouncing", 1);
+                openKey.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("请以管理员权限运行程序。");
+                return false;
+            }
+        }
+
+        public static bool DisbledBouncing()
+        {
+            try
+            {
+                RegistryKey regKey = Registry.CurrentUser;
+                string keyPath = @"Software\Microsoft\Wisp\Touch";
+                RegistryKey openKey = regKey.OpenSubKey(keyPath, true);
+                openKey.SetValue("Bouncing", 0);
+                openKey.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("请以管理员权限运行程序。");
+                return false;
+            }
+        }
     }
 }
