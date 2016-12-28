@@ -11,5 +11,8 @@
         <WindowsFormsHost>
             <wf:WebBrowser x:Name="WebBrowser_Main" ScriptErrorsSuppressed="True" IsWebBrowserContextMenuEnabled="False" />
         </WindowsFormsHost>
+        <!--<ScrollViewer>
+            <WebBrowser x:Name="WebBrowser_Main"/>
+        </ScrollViewer>-->
     </Grid>
 </UserControl>

@@ -18,7 +18,9 @@
     <Grid Background="#FF943EBD">
         <TabControl>
             <TabItem Header="TabItem" Style="{DynamicResource TabItemStyle1}" Margin="0">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <ScrollViewer HorizontalAlignment="Left" Height="100" Margin="83,88,0,0" VerticalAlignment="Top" Width="100"/>
+                </Grid>
             </TabItem>
             <TabItem Header="TabItem" Style="{DynamicResource TabItemStyle1}" Margin="0">
                 <Grid Background="#FFE5E5E5"/>

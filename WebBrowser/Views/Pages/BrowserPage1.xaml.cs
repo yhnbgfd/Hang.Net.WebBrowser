@@ -41,21 +41,20 @@ namespace WebBrowserWPF.Views.Pages
                     if (!string.IsNullOrWhiteSpace(web) && web.Contains('='))
                     {
                         var split = web.Split(new[] { '=' }, 2);
-
                         IMyBrowser wb;
-                        if (kernel == "IE")
+                        //if (kernel == "IE")
                         {
                             wb = new WinFormWebBrowserUserControl()
                             {
                                 MainUrl = new Uri(split[1])
                             };
                         }
-                        else//Chrome
+                        //else//Chrome
                         {
-                            wb = new CefSharpUserControl()
-                            {
-                                MainUrl = new Uri(split[1])
-                            };
+                            //wb = new CefSharpUserControl()
+                            //{
+                            //    MainUrl = new Uri(split[1])
+                            //};
                         }
 
                         TabControl_Main.Items.Add(new TabItem()

@@ -1,13 +1,17 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
+using System.Windows.Navigation;
 using WebBrowserWPF.Base;
 
 namespace WebBrowserWPF.Views.UserControls
 {
-    public partial class WinFormWebBrowserUserControl : UserControl, IMyBrowser
+    public partial class WinFormWebBrowserUserControl : System.Windows.Controls.UserControl, IMyBrowser
     {
         private bool _isFirstLoad = true;
 
@@ -17,6 +21,12 @@ namespace WebBrowserWPF.Views.UserControls
         {
             InitializeComponent();
             WebBrowser_Main.NewWindow += HandleWebBrowserNewWindow;
+            //WebBrowser_Main.DocumentCompleted += HandleDocumentCompleted;
+        }
+
+        private void HandleDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            //VScrollBar
         }
 
         /// <summary>
@@ -30,18 +40,14 @@ namespace WebBrowserWPF.Views.UserControls
             {
                 System.Windows.Forms.WebBrowser webBrowser_temp = (System.Windows.Forms.WebBrowser)sender;
                 string newUrl = webBrowser_temp.Document.ActiveElement.GetAttribute("href");
-                if (!AppData.PopupUrl.Any(s => s == newUrl))
+                //if (!AppData.PopupUrl.Any(s => s == newUrl))
                 {
                     WebBrowser_Main.Url = new Uri(newUrl);
+                    e.Cancel = true;
                 }
             }
             catch (Exception ex)
             {
-
-            }
-            finally
-            {
-                e.Cancel = true;
             }
         }
 
@@ -79,5 +85,6 @@ namespace WebBrowserWPF.Views.UserControls
                 Home();
             }
         }
+
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebBrowserWPF.Views.Windows"
         mc:Ignorable="d"
-        Title="平安力合" Height="768" Width="1024" Loaded="Window_Loaded" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
+        Title="平安力合" Height="768" Width="1024" Loaded="Window_Loaded" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Closed="Window_Closed" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
     <Grid x:Name="Grid_Main">
 
     </Grid>
