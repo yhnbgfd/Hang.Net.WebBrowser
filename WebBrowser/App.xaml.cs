@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Windows;
 
 namespace WebBrowserWPF
@@ -12,6 +8,16 @@ namespace WebBrowserWPF
     /// </summary>
     public partial class App : Application
     {
-
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            Process thisProc = Process.GetCurrentProcess();
+            if (Process.GetProcessesByName(thisProc.ProcessName).Length > 1)
+            {
+                MessageBox.Show(thisProc.ProcessName + " 已经运行。");
+                Current.Shutdown();
+                return;
+            }
+            base.OnStartup(e);
+        }
     }
 }
