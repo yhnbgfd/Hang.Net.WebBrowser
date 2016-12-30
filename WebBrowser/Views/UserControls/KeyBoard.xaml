@@ -1,0 +1,162 @@
+﻿<UserControl x:Class="WebBrowserWPF.Views.UserControls.KeyBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WebBrowserWPF.Views.UserControls"
+             mc:Ignorable="d" FontSize="24"
+             d:DesignHeight="360" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WebBrowserWPF;component/Themes/ButtonDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="`" Grid.Column="0" Tag="~" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="1" Grid.Column="1" Tag="!" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="2" Grid.Column="2" Tag="@" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="3" Grid.Column="3" Tag="#" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="4" Grid.Column="4" Tag="$" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="5" Grid.Column="5" Tag="%" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="6" Grid.Column="6" Tag="^" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="7" Grid.Column="7" Tag="&amp;" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="8" Grid.Column="8" Tag="*" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="9" Grid.Column="9" Tag="(" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="0" Grid.Column="10" Tag=")" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="-" Grid.Column="11" Tag="_" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="=" Grid.Column="12" Tag="+" Style="{DynamicResource KeyBoardButtonStyle}" />
+            <Button Content="Backspace" Grid.Column="13" />
+        </Grid>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Tab" Grid.Column="0" />
+            <Button Content="Q" Grid.Column="1" />
+            <Button Content="W" Grid.Column="2" />
+            <Button Content="E" Grid.Column="3" />
+            <Button Content="R" Grid.Column="4" />
+            <Button Content="T" Grid.Column="5" />
+            <Button Content="Y" Grid.Column="6" />
+            <Button Content="U" Grid.Column="7" />
+            <Button Content="I" Grid.Column="8" />
+            <Button Content="O" Grid.Column="9" />
+            <Button Content="P" Grid.Column="10" />
+            <Button Content="[" Grid.Column="11" Tag="{}{" Style="{DynamicResource KeyBoardButtonStyle}"/>
+            <Button Content="]" Grid.Column="12" Tag="{}}" Style="{DynamicResource KeyBoardButtonStyle}"/>
+            <Button Content="\" Grid.Column="13" Tag="|" Style="{DynamicResource KeyBoardButtonStyle}"/>
+        </Grid>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2.3*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Caps" Grid.Column="0" />
+            <Button Content="A" Grid.Column="1" />
+            <Button Content="S" Grid.Column="2" />
+            <Button Content="D" Grid.Column="3" />
+            <Button Content="F" Grid.Column="4" />
+            <Button Content="G" Grid.Column="5" />
+            <Button Content="H" Grid.Column="6" />
+            <Button Content="J" Grid.Column="7" />
+            <Button Content="K" Grid.Column="8" />
+            <Button Content="L" Grid.Column="9" />
+            <Button Content=";" Grid.Column="10" Tag=":" Style="{DynamicResource KeyBoardButtonStyle}"/>
+            <Button Content="'" Grid.Column="11" Tag="&quot;" Style="{DynamicResource KeyBoardButtonStyle}"/>
+            <Button Content="Enter" Grid.Column="12" />
+        </Grid>
+        <Grid Grid.Row="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Shift" Grid.Column="0" />
+            <Button Content="Z" Grid.Column="1" />
+            <Button Content="X" Grid.Column="2" />
+            <Button Content="C" Grid.Column="3" />
+            <Button Content="V" Grid.Column="4" />
+            <Button Content="B" Grid.Column="5" />
+            <Button Content="N" Grid.Column="6" />
+            <Button Content="M" Grid.Column="7" />
+            <Button Content="," Grid.Column="8" Tag="&lt;" Style="{DynamicResource KeyBoardButtonStyle}"/>
+            <Button Content="." Grid.Column="9" Tag="&gt;" Style="{DynamicResource KeyBoardButtonStyle}"/>
+            <Button Content="/" Grid.Column="10" Tag="?" Style="{DynamicResource KeyBoardButtonStyle}"/>
+            <Button Content="Shift" Grid.Column="11" />
+        </Grid>
+        <Grid Grid.Row="4" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Ctrl" Grid.Column="0" />
+            <Button Content="中" Grid.Column="1" />
+            <Button Content=" " Grid.Column="2"  />
+            <Button Content="◀" Grid.Column="3" />
+            <Button Content="▶" Grid.Column="4" />
+        </Grid>
+    </Grid>
+</UserControl>

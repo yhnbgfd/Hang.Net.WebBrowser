@@ -40,6 +40,9 @@ namespace WebBrowserWPF.Views.Windows
             IntPtr hTray = FindWindowA("Shell_TrayWnd", string.Empty);
             ShowWindow(hTray, 0);
 
+            var rwl2 = FindWindowA("Button", null);
+            ShowWindow(rwl2, 0);
+
             //禁用触摸反馈
             RegeditHelper.DisbledBouncing();
 
@@ -65,12 +68,18 @@ namespace WebBrowserWPF.Views.Windows
 
                 Grid_Main.Children.Add(frame);
             }));
+
+            var kb = new KeyBoardWindow();
+            kb.Show();
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
             IntPtr hTray = FindWindowA("Shell_TrayWnd", string.Empty);
             ShowWindow(hTray, 5); //显示任务栏
+
+            var rwl2 = FindWindowA("Button", null);
+            ShowWindow(rwl2, 5);
 
             //启用触摸反馈
             RegeditHelper.EnabledBouncing();

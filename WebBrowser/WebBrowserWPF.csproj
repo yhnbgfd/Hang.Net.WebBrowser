@@ -122,11 +122,17 @@
     <Compile Include="Views\Pages\TestPage1.xaml.cs">
       <DependentUpon>TestPage1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControls\KeyBoard.xaml.cs">
+      <DependentUpon>KeyBoard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\KeyboardUserControl.xaml.cs">
       <DependentUpon>KeyboardUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\WinFormWebBrowserUserControl.xaml.cs">
       <DependentUpon>WinFormWebBrowserUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\KeyBoardWindow.xaml.cs">
+      <DependentUpon>KeyBoardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
@@ -147,11 +153,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\UserControls\KeyBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\KeyboardUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\WinFormWebBrowserUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\KeyBoardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

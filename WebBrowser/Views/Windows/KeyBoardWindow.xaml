@@ -1,0 +1,34 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebBrowserWPF.Views.Windows"
+        xmlns:UserControls="clr-namespace:WebBrowserWPF.Views.UserControls" x:Class="WebBrowserWPF.Views.Windows.KeyBoardWindow"
+        mc:Ignorable="d"
+        Title="KeyBoardWindow" Height="100" Width="100" ResizeMode="NoResize" Topmost="True" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WebBrowserWPF;component/Themes/ButtonDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="屏幕" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="36" IsHitTestVisible="False" Foreground="White" />
+            <TextBlock Text="键盘" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" IsHitTestVisible="False" Foreground="White" />
+        </Grid>
+        <Popup x:Name="Popup_KeyBoard" Placement="Left">
+            <Grid Width="1000" Height="360" Background="#FFBFBFBF">
+                <UserControls:KeyBoard Margin="20" />
+            </Grid>
+        </Popup>
+    </Grid>
+</Window>
