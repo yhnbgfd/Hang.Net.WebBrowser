@@ -113,6 +113,7 @@ namespace WebBrowserWPF.Views.UserControls
                 case "X": System.Windows.Forms.SendKeys.SendWait(func + "x"); return;
                 case "Y": System.Windows.Forms.SendKeys.SendWait(func + "y"); return;
                 case "Z": System.Windows.Forms.SendKeys.SendWait(func + "z"); return;
+                case " ": System.Windows.Forms.SendKeys.SendWait(" "); return;
             }
         }
     }
