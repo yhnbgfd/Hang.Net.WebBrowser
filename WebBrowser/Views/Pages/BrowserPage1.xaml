@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WebBrowserWPF.Views.Pages"
       mc:Ignorable="d" 
-`      d:DesignHeight="300" d:DesignWidth="1920" FontSize="20"
+      d:DesignHeight="300" d:DesignWidth="1920" FontSize="20"
       Title="BrowserPage1" Loaded="Page_Loaded" Unloaded="Page_Unloaded">
     <Page.Resources>
         <ResourceDictionary>
