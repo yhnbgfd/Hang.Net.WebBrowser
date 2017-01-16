@@ -16,7 +16,7 @@
     </Window.Resources>
 
     <Grid>
-        <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}"/>
+        <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>

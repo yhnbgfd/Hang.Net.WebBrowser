@@ -125,9 +125,6 @@
     <Compile Include="Views\UserControls\KeyBoard.xaml.cs">
       <DependentUpon>KeyBoard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\KeyboardUserControl.xaml.cs">
-      <DependentUpon>KeyboardUserControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\UserControls\WinFormWebBrowserUserControl.xaml.cs">
       <DependentUpon>WinFormWebBrowserUserControl.xaml</DependentUpon>
     </Compile>
@@ -154,10 +151,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\KeyBoard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UserControls\KeyboardUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

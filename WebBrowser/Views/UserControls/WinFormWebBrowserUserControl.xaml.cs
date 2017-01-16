@@ -20,7 +20,6 @@ namespace WebBrowserWPF.Views.UserControls
         const int MOUSEEVENTF_WHEEL = 0x800;
         const int MOUSEEVENTF_ABSOLUTE = 0x8000;
 
-
         private bool _isFirstLoad = true;
 
         public Uri MainUrl { get; set; }

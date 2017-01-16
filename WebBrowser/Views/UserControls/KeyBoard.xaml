@@ -102,7 +102,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="2.3*"/>
             </Grid.ColumnDefinitions>
-            <Button Content="Caps" Grid.Column="0" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button x:Name="Button_Caps" Content="Caps" Grid.Column="0" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
             <Button Content="A" Grid.Column="1" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
             <Button Content="S" Grid.Column="2" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
             <Button Content="D" Grid.Column="3" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
@@ -147,13 +147,13 @@
         <Grid Grid.Row="4" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="Button_Ctrl" Content="Ctrl" Grid.Column="0" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click" />
-            <Button Content="中" Grid.Column="1" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click" />
+            <Button x:Name="Button_Lang" Content="切换输入法" Grid.Column="1" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Lang_Click" FontSize="20"/>
             <Button Content=" " Grid.Column="2"  Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click" />
             <Button Content="◀" Grid.Column="3" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
             <Button Content="▶" Grid.Column="4" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>

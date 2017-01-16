@@ -146,5 +146,6 @@ namespace WebBrowserWPF.Views.Windows
             _password = _password.Substring(0, _password.Length - 1);
             PasswordBox_Pwd.Password = _password;
         }
+
     }
 }

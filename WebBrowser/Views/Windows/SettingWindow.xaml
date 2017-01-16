@@ -52,10 +52,10 @@
             </TabItem>
             <TabItem Header="键盘设置" Padding="15,10">
                 <Grid Background="#FFE5E5E5">
-                </Grid>
+               </Grid>
             </TabItem>
         </TabControl>
-        <Grid x:Name="Grid_Password" Background="White" >
+        <Grid x:Name="Grid_Password" Background="White" Visibility="Collapsed" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>

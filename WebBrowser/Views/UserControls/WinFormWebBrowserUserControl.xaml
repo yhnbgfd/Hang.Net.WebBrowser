@@ -16,10 +16,14 @@
     </UserControl.Resources>
 
     <Grid>
-        <WindowsFormsHost Margin="0,0,60,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <WindowsFormsHost>
             <wf:WebBrowser x:Name="WebBrowser_Main" ScriptErrorsSuppressed="True" IsWebBrowserContextMenuEnabled="False" />
         </WindowsFormsHost>
-        <Grid HorizontalAlignment="Right" Width="60">
+        <Grid Width="60" Grid.Column="1" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -27,6 +31,5 @@
             <Button x:Name="Button_Up" Content="▲" Click="Button_Up_Click" Focusable="False" FontSize="24" Foreground="Black" Margin="0,0,0,0"/>
             <Button x:Name="Button_Down" Content="▼" Grid.Row="1" Click="Button_Down_Click" Focusable="False" FontSize="24" Foreground="Black" Margin="0,0,0,0"/>
         </Grid>
-        <!--<WebBrowser x:Name="WebBrowser_Main"/>-->
     </Grid>
 </UserControl>
