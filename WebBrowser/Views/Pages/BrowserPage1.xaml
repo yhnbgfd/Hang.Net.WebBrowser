@@ -30,7 +30,7 @@
                 <Button x:Name="Button_GoForward" Content="前进" Click="Button_GoForward_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle1}"/>
             </StackPanel>
             <StackPanel Margin="0" HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button x:Name="Button_Keyboard" Content="打开屏幕键盘" Click="Button_Keyboard_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle1}"/>
+                <Button Visibility="Collapsed" x:Name="Button_Keyboard" Content="打开屏幕键盘" Click="Button_Keyboard_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle1}"/>
                 <Button x:Name="Button_Setting" Content="设置" Click="Button_Setting_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle1}"/>
             </StackPanel>
         </Grid>

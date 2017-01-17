@@ -27,7 +27,7 @@
         </Grid>
         <Popup x:Name="Popup_KeyBoard" Placement="Left">
             <Grid Width="1000" Height="360" Background="#FFBFBFBF">
-                <UserControls:KeyBoard Margin="20" />
+                <UserControls:KeyBoard Margin="10" />
             </Grid>
         </Popup>
     </Grid>
