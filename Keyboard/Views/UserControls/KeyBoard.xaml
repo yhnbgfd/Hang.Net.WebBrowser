@@ -1,0 +1,162 @@
+﻿<UserControl x:Class="Keyboard.Views.UserControls.KeyBoard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Keyboard.Views.UserControls"
+             mc:Ignorable="d" FontSize="24"
+             d:DesignHeight="360" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Keyboard;component/Themes/ButtonDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="`" Grid.Column="0" Tag="~" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="1" Grid.Column="1" Tag="!" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="2" Grid.Column="2" Tag="@" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="3" Grid.Column="3" Tag="#" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="4" Grid.Column="4" Tag="$" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="5" Grid.Column="5" Tag="%" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="6" Grid.Column="6" Tag="^" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="7" Grid.Column="7" Tag="&amp;" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="8" Grid.Column="8" Tag="*" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="9" Grid.Column="9" Tag="(" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="0" Grid.Column="10" Tag=")" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="-" Grid.Column="11" Tag="_" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="=" Grid.Column="12" Tag="+" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click" />
+            <Button Content="Backspace" Grid.Column="13" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+        </Grid>
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Tab" Grid.Column="0" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="Q" Grid.Column="1" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="W" Grid.Column="2" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="E" Grid.Column="3" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="R" Grid.Column="4" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="T" Grid.Column="5" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="Y" Grid.Column="6" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="U" Grid.Column="7" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="I" Grid.Column="8" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="O" Grid.Column="9" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="P" Grid.Column="10" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="[" Grid.Column="11" Tag="{}{" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click"/>
+            <Button Content="]" Grid.Column="12" Tag="{}}" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click"/>
+            <Button Content="\" Grid.Column="13" Tag="|" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click"/>
+        </Grid>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2.3*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Button_Caps" Content="Caps" Grid.Column="0" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="A" Grid.Column="1" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="S" Grid.Column="2" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="D" Grid.Column="3" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="F" Grid.Column="4" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="G" Grid.Column="5" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="H" Grid.Column="6" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="J" Grid.Column="7" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="K" Grid.Column="8" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="L" Grid.Column="9" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content=";" Grid.Column="10" Tag=":" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click"/>
+            <Button Content="'" Grid.Column="11" Tag="&quot;" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click"/>
+            <Button Content="Enter" Grid.Column="12" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+        </Grid>
+        <Grid Grid.Row="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Button_Shift1" Content="Shift" Grid.Column="0" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click" />
+            <Button Content="Z" Grid.Column="1" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="X" Grid.Column="2" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="C" Grid.Column="3" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="V" Grid.Column="4" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="B" Grid.Column="5" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="N" Grid.Column="6" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="M" Grid.Column="7" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="," Grid.Column="8" Tag="&lt;" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click"/>
+            <Button Content="." Grid.Column="9" Tag="&gt;" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click"/>
+            <Button Content="/" Grid.Column="10" Tag="?" Style="{DynamicResource KeyBoardButtonStyle2}" Click="Button_Key_Click"/>
+            <Button x:Name="Button_Shift2" Content="Shift" Grid.Column="11" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+        </Grid>
+        <Grid Grid.Row="4" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Button_Ctrl" Content="Ctrl" Grid.Column="0" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click" />
+            <Button x:Name="Button_Lang" Content="切换输入法" Grid.Column="1" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Lang_Click" FontSize="20"/>
+            <Button Content=" " Grid.Column="2"  Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click" />
+            <Button Content="◀" Grid.Column="3" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="▶" Grid.Column="4" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+        </Grid>
+    </Grid>
+</UserControl>

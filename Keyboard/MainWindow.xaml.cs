@@ -1,11 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls.Primitives;
 
-namespace WebBrowserWPF.Views.Windows
+namespace Keyboard
 {
-    public partial class KeyBoardWindow : Window
+    public partial class MainWindow : Window
     {
-        public KeyBoardWindow()
+        public MainWindow()
         {
             InitializeComponent();
 

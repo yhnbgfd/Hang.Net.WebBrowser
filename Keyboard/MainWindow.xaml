@@ -1,19 +1,19 @@
-﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window x:Class="Keyboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WebBrowserWPF.Views.Windows"
-        xmlns:UserControls="clr-namespace:WebBrowserWPF.Views.UserControls" x:Class="WebBrowserWPF.Views.Windows.KeyBoardWindow"
+        xmlns:local="clr-namespace:Keyboard"
+        xmlns:UserControls="clr-namespace:Keyboard.Views.UserControls"
         mc:Ignorable="d"
         Title="KeyBoardWindow" Height="100" Width="100" ResizeMode="NoResize" Topmost="True" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" Focusable="False">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/WebBrowserWPF;component/Themes/ButtonDictionary.xaml" />
+                <ResourceDictionary Source="/Keyboard;component/Themes/ButtonDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-
     <Grid>
         <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
         <Grid>

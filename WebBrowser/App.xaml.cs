@@ -18,6 +18,8 @@ namespace WebBrowserWPF
                 return;
             }
             base.OnStartup(e);
+
+            Process.Start("Keyboard.exe");
         }
     }
 }

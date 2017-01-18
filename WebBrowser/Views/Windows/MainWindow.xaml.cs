@@ -69,8 +69,8 @@ namespace WebBrowserWPF.Views.Windows
                 Grid_Main.Children.Add(frame);
             }));
 
-            var kb = new KeyBoardWindow();
-            kb.Show();
+            //var kb = new KeyBoardWindow();
+            //kb.Show();
         }
 
         private void Window_Closed(object sender, EventArgs e)
