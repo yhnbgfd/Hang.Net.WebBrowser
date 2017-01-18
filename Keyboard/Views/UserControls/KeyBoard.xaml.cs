@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
 
@@ -12,6 +13,7 @@ namespace Keyboard.Views.UserControls
         private bool isShift = false;
         private bool isCtrl = false;
         private bool isCaps = false;
+        private DateTime _clickTime = DateTime.Now;
 
         public KeyBoard()
         {
@@ -20,6 +22,12 @@ namespace Keyboard.Views.UserControls
 
         private void Button_Key_Click(object sender, RoutedEventArgs e)
         {
+            if ((DateTime.Now - _clickTime).TotalMilliseconds < 100)
+            {
+                return;
+            }
+            _clickTime = DateTime.Now;
+
             var btn = sender as System.Windows.Controls.Button;
             var c1 = btn.Content.ToString();
             var c2 = string.Empty;
