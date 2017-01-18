@@ -22,7 +22,7 @@ namespace Keyboard.Views.UserControls
 
         private void Button_Key_Click(object sender, RoutedEventArgs e)
         {
-            if ((DateTime.Now - _clickTime).TotalMilliseconds < 100)
+            if ((DateTime.Now - _clickTime).TotalMilliseconds < 200)
             {
                 return;
             }

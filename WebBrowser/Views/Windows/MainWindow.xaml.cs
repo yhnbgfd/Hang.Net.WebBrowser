@@ -69,8 +69,7 @@ namespace WebBrowserWPF.Views.Windows
                 Grid_Main.Children.Add(frame);
             }));
 
-            //var kb = new KeyBoardWindow();
-            //kb.Show();
+            Process.Start("Keyboard.exe");
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -83,6 +82,8 @@ namespace WebBrowserWPF.Views.Windows
 
             //启用触摸反馈
             RegeditHelper.EnabledBouncing();
+
+            Process.GetProcessesByName("Keyboard")[0].Kill();
         }
 
         //http://www.cnblogs.com/waixingehao/archive/2011/10/12/2208598.html
