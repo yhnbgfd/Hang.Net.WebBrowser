@@ -43,16 +43,12 @@
                     <TextBlock Text="一行一个网址，格式：网址名称=完整Url地址(带http://)" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="屏蔽网址设置" Padding="15,10">
+            <TabItem Header="屏蔽网址设置" Padding="15,10" Visibility="Collapsed">
                 <Grid Background="#FFE5E5E5">
                     <Button x:Name="Button_SavePopup" Content="保存" HorizontalAlignment="Center" Margin="0,0,0,5" VerticalAlignment="Bottom" FontSize="16" Padding="25,5" Click="Button_SavePopup_Click"/>
                     <TextBox x:Name="TextBox_PopupWebs" Margin="10,25,10,40" TextWrapping="NoWrap" Text="" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
                     <TextBlock Text="一行一个网址(带http://)，一般填写那些公告弹出窗的地址。" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
                 </Grid>
-            </TabItem>
-            <TabItem Header="键盘设置" Padding="15,10">
-                <Grid Background="#FFE5E5E5">
-               </Grid>
             </TabItem>
         </TabControl>
         <Grid x:Name="Grid_Password" Background="White" Visibility="Collapsed" >
