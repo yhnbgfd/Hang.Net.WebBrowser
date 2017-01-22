@@ -161,10 +161,10 @@ namespace Keyboard.Views.UserControls
             InputLanguage.CurrentInputLanguage = _allInputs[_currentInputIndex];
             Button_Lang.Content = InputLanguage.CurrentInputLanguage.LayoutName;
 
-            Task.Factory.StartNew(() =>
-            {
-                new TcpHelper().Send(InputLanguage.CurrentInputLanguage.LayoutName);
-            });
+            //Task.Factory.StartNew(() =>
+            //{
+            //    new TcpHelper().Send(InputLanguage.CurrentInputLanguage.LayoutName);
+            //});
         }
     }
 }
