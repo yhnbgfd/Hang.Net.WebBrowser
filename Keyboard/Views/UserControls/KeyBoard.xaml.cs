@@ -1,5 +1,6 @@
 ﻿using Keyboard.Base;
 using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -160,7 +161,10 @@ namespace Keyboard.Views.UserControls
             InputLanguage.CurrentInputLanguage = _allInputs[_currentInputIndex];
             Button_Lang.Content = InputLanguage.CurrentInputLanguage.LayoutName;
 
-            new TcpHelper().Send(InputLanguage.CurrentInputLanguage.LayoutName);
+            Task.Factory.StartNew(() =>
+            {
+                new TcpHelper().Send(InputLanguage.CurrentInputLanguage.LayoutName);
+            });
         }
     }
 }

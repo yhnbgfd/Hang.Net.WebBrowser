@@ -72,13 +72,13 @@ namespace WebBrowserWPF.Views.Windows
             }));
 
             //启动Tcp服务
-            var tcp = new TcpHelper();
-            tcp.OnInputLanguageChange += ChangeInputLanguage;
-            tcp.Start();
+            //var tcp = new TcpHelper();
+            //tcp.OnInputLanguageChange += ChangeInputLanguage;
+            //tcp.Start();
 
-            ChangeInputLanguage(null, new MyEventArgs { InputLanguage = "中文(简体) - 手心输入法" });
+            //ChangeInputLanguage(null, new MyEventArgs { InputLanguage = "中文(简体) - 手心输入法" });
 
-            Process.Start("Keyboard.exe");
+            //Process.Start("Keyboard.exe");
         }
 
         private void ChangeInputLanguage(object sender, MyEventArgs e)

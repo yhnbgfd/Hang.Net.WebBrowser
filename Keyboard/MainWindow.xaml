@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Keyboard"
         xmlns:UserControls="clr-namespace:Keyboard.Views.UserControls"
         mc:Ignorable="d"
-        Title="KeyBoardWindow" Height="100" Width="100" ResizeMode="NoResize" Topmost="True" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" Focusable="False">
+        Title="KeyBoardWindow" Height="50" Width="200" ResizeMode="NoResize" Topmost="True" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" Focusable="False">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,14 +16,9 @@
     </Window.Resources>
     <Grid>
         <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="屏幕" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="36" IsHitTestVisible="False" Foreground="White" />
-            <TextBlock Text="键盘" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" IsHitTestVisible="False" Foreground="White" />
-        </Grid>
+        <Viewbox Margin="1,3">
+            <TextBlock x:Name="TextBlock_Content" Text="屏幕键盘" IsHitTestVisible="False" Foreground="White" />
+        </Viewbox>
         <Popup x:Name="Popup_KeyBoard" Placement="Left">
             <Grid Width="1000" Height="360" Background="#FFBFBFBF">
                 <UserControls:KeyBoard Margin="10" />
