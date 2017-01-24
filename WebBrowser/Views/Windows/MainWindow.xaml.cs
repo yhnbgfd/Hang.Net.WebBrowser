@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using WebBrowserWPF.Base;
 using WebBrowserWPF.Views.Pages;
-using F = System.Windows.Forms;
 
 namespace WebBrowserWPF.Views.Windows
 {
     public partial class MainWindow : Window
     {
-        private F.InputLanguageCollection _allInputs = F.InputLanguage.InstalledInputLanguages;
+        private Timer _timerToClose;
 
         public MainWindow()
         {
@@ -21,11 +21,13 @@ namespace WebBrowserWPF.Views.Windows
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+#if !DEBUG
             //隐藏任务栏
             IntPtr hTray = FindWindowA("Shell_TrayWnd", string.Empty);
             ShowWindow(hTray, 0);
             var rwl2 = FindWindowA("Button", null);
             ShowWindow(rwl2, 0);
+#endif
 
             //禁用触摸反馈
             RegeditHelper.DisbledBouncing();
@@ -42,29 +44,18 @@ namespace WebBrowserWPF.Views.Windows
                 Grid_Main.Children.Add(frame);
             }));
 
-            //启动Tcp服务
-            //var tcp = new TcpHelper();
-            //tcp.OnInputLanguageChange += ChangeInputLanguage;
-            //tcp.Start();
+            Process.Start("Keyboard.exe");
 
-            //ChangeInputLanguage(null, new MyEventArgs { InputLanguage = "中文(简体) - 手心输入法" });
-
-            //Process.Start("Keyboard.exe");
+            _timerToClose = new Timer(CloseSystemWindow, null, 1000, 1000);
         }
 
-        private void ChangeInputLanguage(object sender, MyEventArgs e)
+        private void CloseSystemWindow(object state)
         {
-            Dispatcher.Invoke(new Action(() =>
+            var ks = Process.GetProcessesByName("SystemSettings");
+            foreach (var k in ks)
             {
-                foreach (F.InputLanguage lang in _allInputs)
-                {
-                    if (lang.LayoutName == e.InputLanguage)
-                    {
-                        F.InputLanguage.CurrentInputLanguage = lang;
-                        return;
-                    }
-                }
-            }));
+                k.Kill();
+            }
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -95,13 +86,9 @@ namespace WebBrowserWPF.Views.Windows
             Process[] ies = Process.GetProcessesByName("iexplore");
             foreach (var ie in ies)
             {
-                ie.Kill();
+                ie.Kill();//杀死所有被遮盖的ie窗口
             }
         }
 
-        private void Window_ManipulationBoundaryFeedback(object sender, System.Windows.Input.ManipulationBoundaryFeedbackEventArgs e)
-        {
-            e.Handled = true;
-        }
     }
 }
