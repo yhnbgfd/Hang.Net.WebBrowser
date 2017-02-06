@@ -115,7 +115,6 @@
     <Compile Include="Base\Ini.cs" />
     <Compile Include="Base\MyEventArgs.cs" />
     <Compile Include="Base\RegeditHelper.cs" />
-    <Compile Include="Base\TcpHelper.cs" />
     <Compile Include="Views\Pages\BrowserPage1.xaml.cs">
       <DependentUpon>BrowserPage1.xaml</DependentUpon>
     </Compile>

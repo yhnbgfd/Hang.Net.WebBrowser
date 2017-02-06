@@ -1,6 +1,4 @@
-﻿using Keyboard.Base;
-using System;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
@@ -151,6 +149,11 @@ namespace Keyboard.Views.UserControls
             }
         }
 
+        /// <summary>
+        /// 切换输入法
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Lang_Click(object sender, RoutedEventArgs e)
         {
             _currentInputIndex++;
@@ -160,11 +163,6 @@ namespace Keyboard.Views.UserControls
             }
             InputLanguage.CurrentInputLanguage = _allInputs[_currentInputIndex];
             Button_Lang.Content = InputLanguage.CurrentInputLanguage.LayoutName;
-
-            //Task.Factory.StartNew(() =>
-            //{
-            //    new TcpHelper().Send(InputLanguage.CurrentInputLanguage.LayoutName);
-            //});
         }
     }
 }

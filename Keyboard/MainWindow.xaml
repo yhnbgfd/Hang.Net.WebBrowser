@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Keyboard"
         xmlns:UserControls="clr-namespace:Keyboard.Views.UserControls"
         mc:Ignorable="d"
-        Title="KeyBoardWindow" Height="50" Width="200" ResizeMode="NoResize" Topmost="True" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" Focusable="False">
+        Title="KeyBoardWindow" Height="5" Width="5" ResizeMode="NoResize" Topmost="True" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" Focusable="False">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,13 +15,14 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
-        <Viewbox Margin="1,3">
-            <TextBlock x:Name="TextBlock_Content" Text="屏幕键盘" IsHitTestVisible="False" Foreground="White" />
-        </Viewbox>
-        <Popup x:Name="Popup_KeyBoard" Placement="Left">
-            <Grid Width="1000" Height="360" Background="#FFBFBFBF">
-                <UserControls:KeyBoard Margin="10" />
+        <Popup IsOpen="True">
+            <Grid Height="100" Width="180" Background="#FF943EBD">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="Button_KeyBoard" Content="屏幕键盘" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False" FocusVisualStyle="{x:Null}" FontSize="36"/>
+                <Button x:Name="Button_Input" Content="切换输入法" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False" Grid.RowSpan="1" Grid.Row="2" Click="Button_Input_Click" FocusVisualStyle="{x:Null}" FontSize="32"/>
             </Grid>
         </Popup>
     </Grid>

@@ -54,7 +54,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Base\TcpHelper.cs" />
     <Compile Include="Views\UserControls\KeyBoard.xaml.cs">
       <DependentUpon>KeyBoard.xaml</DependentUpon>
     </Compile>
