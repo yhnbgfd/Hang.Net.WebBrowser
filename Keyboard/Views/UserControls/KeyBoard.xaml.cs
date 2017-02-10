@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using WindowsInput;
@@ -10,6 +11,7 @@ namespace Keyboard.Views.UserControls
     {
         private IKeyboardSimulator _keyboard = new InputSimulator().Keyboard;
 
+        private DateTime _clickTime = DateTime.Now;//按键的时间，用于控制按键间隔
         private bool isShift = false;
         private bool isCaps = false;
 
@@ -20,6 +22,9 @@ namespace Keyboard.Views.UserControls
 
         private void Button_Key_Click(object sender, RoutedEventArgs e)
         {
+            if ((DateTime.Now - _clickTime).TotalMilliseconds < 200) return;
+            _clickTime = DateTime.Now;
+
             var c1 = (sender as Button).Content.ToString();
 
             //功能按键
