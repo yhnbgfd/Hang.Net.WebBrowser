@@ -1,19 +1,20 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows;
-using System.Windows.Forms;
+using System.Windows.Controls;
 using System.Windows.Media;
+using WindowsInput;
+using WindowsInput.Native;
+using F = System.Windows.Forms;
 
 namespace Keyboard.Views.UserControls
 {
-    public partial class KeyBoard : System.Windows.Controls.UserControl
+    public partial class KeyBoard : UserControl
     {
-        private InputLanguageCollection _allInputs = InputLanguage.InstalledInputLanguages;
-        private int _currentInputIndex = -1;
+        private IKeyboardSimulator _keyboard = new InputSimulator().Keyboard;
 
         private bool isShift = false;
-        private bool isCtrl = false;
         private bool isCaps = false;
-        private DateTime _clickTime = DateTime.Now;
 
         public KeyBoard()
         {
@@ -22,28 +23,23 @@ namespace Keyboard.Views.UserControls
 
         private void Button_Key_Click(object sender, RoutedEventArgs e)
         {
-            if ((DateTime.Now - _clickTime).TotalMilliseconds < 200)
-            {
-                return;
-            }
-            _clickTime = DateTime.Now;
-
-            var btn = sender as System.Windows.Controls.Button;
+            var btn = sender as Button;
             var c1 = btn.Content.ToString();
-            var c2 = string.Empty;
-            if (btn.Tag != null)
-            {
-                c2 = btn.Tag.ToString();
-            }
 
             //功能按键
             switch (c1)
             {
-                case "Backspace": SendKeys.SendWait("{BACKSPACE}"); return;
-                case "Tab": SendKeys.SendWait("{TAB}"); return;
+                case "Backspace":
+                    _keyboard.KeyPress(VirtualKeyCode.BACK);
+                    return;
+                case "Tab":
+                    _keyboard.KeyPress(VirtualKeyCode.TAB);
+                    return;
                 case "Caps":
                     {
-                        isCaps = !isCaps;
+                        _keyboard.KeyPress(VirtualKeyCode.CAPITAL);
+
+                        isCaps = !isCaps;//改变按键颜色
                         if (isCaps)
                         {
                             Button_Caps.Background = new SolidColorBrush(Color.FromRgb(148, 62, 189));
@@ -52,10 +48,11 @@ namespace Keyboard.Views.UserControls
                         {
                             Button_Caps.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
                         }
-                        //System.Windows.Forms.SendKeys.SendWait("{CAPSLOCK}");//这个发送了没啥效果
                         return;
                     }
-                case "Enter": SendKeys.SendWait("{ENTER}"); return;
+                case "Enter":
+                    _keyboard.KeyPress(VirtualKeyCode.RETURN);
+                    return;
                 case "Shift"://Shift由值按键触发时智能添加
                     {
                         isShift = !isShift;
@@ -71,82 +68,77 @@ namespace Keyboard.Views.UserControls
                         }
                         return;
                     }
-                case "Ctrl":
-                    {
-                        isCtrl = !isCtrl;
-                        if (isCtrl == true)
-                        {
-                            Button_Ctrl.Background = new SolidColorBrush(Color.FromRgb(148, 62, 189));
-                        }
-                        else
-                        {
-                            Button_Ctrl.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
-                        }
-                        return;
-                    }
             }
 
             //值按键
-            var func = "";
-            if ((isShift == true && isCaps == false) || (isCaps == true && isShift == false))
+            if (isShift == true)
             {
-                func = "+";
+                _keyboard.KeyDown(VirtualKeyCode.SHIFT);
+            }
+
+            switch (c1)
+            {
+                #region 数字
+                case "1": _keyboard.KeyPress(VirtualKeyCode.VK_1); break;
+                case "2": _keyboard.KeyPress(VirtualKeyCode.VK_2); break;
+                case "3": _keyboard.KeyPress(VirtualKeyCode.VK_3); break;
+                case "4": _keyboard.KeyPress(VirtualKeyCode.VK_4); break;
+                case "5": _keyboard.KeyPress(VirtualKeyCode.VK_5); break;
+                case "6": _keyboard.KeyPress(VirtualKeyCode.VK_6); break;
+                case "7": _keyboard.KeyPress(VirtualKeyCode.VK_7); break;
+                case "8": _keyboard.KeyPress(VirtualKeyCode.VK_8); break;
+                case "9": _keyboard.KeyPress(VirtualKeyCode.VK_9); break;
+                case "0": _keyboard.KeyPress(VirtualKeyCode.VK_0); break;
+                #endregion
+                #region 字母
+                case "A": _keyboard.KeyPress(VirtualKeyCode.VK_A); break;
+                case "B": _keyboard.KeyPress(VirtualKeyCode.VK_B); break;
+                case "C": _keyboard.KeyPress(VirtualKeyCode.VK_C); break;
+                case "D": _keyboard.KeyPress(VirtualKeyCode.VK_D); break;
+                case "E": _keyboard.KeyPress(VirtualKeyCode.VK_E); break;
+                case "F": _keyboard.KeyPress(VirtualKeyCode.VK_F); break;
+                case "G": _keyboard.KeyPress(VirtualKeyCode.VK_G); break;
+                case "H": _keyboard.KeyPress(VirtualKeyCode.VK_H); break;
+                case "I": _keyboard.KeyPress(VirtualKeyCode.VK_I); break;
+                case "J": _keyboard.KeyPress(VirtualKeyCode.VK_J); break;
+                case "K": _keyboard.KeyPress(VirtualKeyCode.VK_K); break;
+                case "L": _keyboard.KeyPress(VirtualKeyCode.VK_L); break;
+                case "M": _keyboard.KeyPress(VirtualKeyCode.VK_M); break;
+                case "N": _keyboard.KeyPress(VirtualKeyCode.VK_N); break;
+                case "O": _keyboard.KeyPress(VirtualKeyCode.VK_O); break;
+                case "P": _keyboard.KeyPress(VirtualKeyCode.VK_P); break;
+                case "Q": _keyboard.KeyPress(VirtualKeyCode.VK_Q); break;
+                case "R": _keyboard.KeyPress(VirtualKeyCode.VK_R); break;
+                case "S": _keyboard.KeyPress(VirtualKeyCode.VK_S); break;
+                case "T": _keyboard.KeyPress(VirtualKeyCode.VK_T); break;
+                case "U": _keyboard.KeyPress(VirtualKeyCode.VK_U); break;
+                case "V": _keyboard.KeyPress(VirtualKeyCode.VK_V); break;
+                case "W": _keyboard.KeyPress(VirtualKeyCode.VK_W); break;
+                case "X": _keyboard.KeyPress(VirtualKeyCode.VK_X); break;
+                case "Y": _keyboard.KeyPress(VirtualKeyCode.VK_Y); break;
+                case "Z": _keyboard.KeyPress(VirtualKeyCode.VK_Z); break;
+                #endregion
+                case " ": _keyboard.KeyPress(VirtualKeyCode.SPACE); break;
+
+                case "`": _keyboard.KeyPress(VirtualKeyCode.OEM_3); break;
+                case "-": _keyboard.KeyPress(VirtualKeyCode.OEM_MINUS); break;
+                case "=": _keyboard.KeyPress(VirtualKeyCode.OEM_PLUS); break;
+                case "[": _keyboard.KeyPress(VirtualKeyCode.OEM_4); break;
+                case "]": _keyboard.KeyPress(VirtualKeyCode.OEM_6); break;
+                case "\\": _keyboard.KeyPress(VirtualKeyCode.OEM_5); break;
+                case ";": _keyboard.KeyPress(VirtualKeyCode.OEM_1); break;
+                case "'": _keyboard.KeyPress(VirtualKeyCode.OEM_7); break;
+                case ",": _keyboard.KeyPress(VirtualKeyCode.OEM_COMMA); break;
+                case ".": _keyboard.KeyPress(VirtualKeyCode.OEM_PERIOD); break;
+                case "/": _keyboard.KeyPress(VirtualKeyCode.OEM_2); break;
+            }
+            if (isShift == true)
+            {
+                _keyboard.KeyUp(VirtualKeyCode.SHIFT);
             }
             isShift = false;//按什么键都要重置Shift
             Button_Shift1.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
             Button_Shift2.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
-            switch (c1)
-            {
-                case "1": SendKeys.SendWait(func + "1"); return;
-                case "2": SendKeys.SendWait(func + "2"); return;
-                case "3": SendKeys.SendWait(func + "3"); return;
-                case "4": SendKeys.SendWait(func + "4"); return;
-                case "5": SendKeys.SendWait(func + "5"); return;
-                case "6": SendKeys.SendWait(func + "6"); return;
-                case "7": SendKeys.SendWait(func + "7"); return;
-                case "8": SendKeys.SendWait(func + "8"); return;
-                case "9": SendKeys.SendWait(func + "9"); return;
-                case "0": SendKeys.SendWait(func + "0"); return;
-                case "A": SendKeys.SendWait(func + "a"); return;
-                case "B": SendKeys.SendWait(func + "b"); return;
-                case "C": SendKeys.SendWait(func + "c"); return;
-                case "D": SendKeys.SendWait(func + "d"); return;
-                case "E": SendKeys.SendWait(func + "e"); return;
-                case "F": SendKeys.SendWait(func + "f"); return;
-                case "G": SendKeys.SendWait(func + "g"); return;
-                case "H": SendKeys.SendWait(func + "h"); return;
-                case "I": SendKeys.SendWait(func + "i"); return;
-                case "J": SendKeys.SendWait(func + "j"); return;
-                case "K": SendKeys.SendWait(func + "k"); return;
-                case "L": SendKeys.SendWait(func + "l"); return;
-                case "M": SendKeys.SendWait(func + "m"); return;
-                case "N": SendKeys.SendWait(func + "n"); return;
-                case "O": SendKeys.SendWait(func + "o"); return;
-                case "P": SendKeys.SendWait(func + "p"); return;
-                case "Q": SendKeys.SendWait(func + "q"); return;
-                case "R": SendKeys.SendWait(func + "r"); return;
-                case "S": SendKeys.SendWait(func + "s"); return;
-                case "T": SendKeys.SendWait(func + "t"); return;
-                case "U": SendKeys.SendWait(func + "u"); return;
-                case "V": SendKeys.SendWait(func + "v"); return;
-                case "W": SendKeys.SendWait(func + "w"); return;
-                case "X": SendKeys.SendWait(func + "x"); return;
-                case "Y": SendKeys.SendWait(func + "y"); return;
-                case "Z": SendKeys.SendWait(func + "z"); return;
-                case " ": SendKeys.SendWait(" "); return;
-
-                case "`": SendKeys.SendWait(func + "{`}"); return;
-                case "-": SendKeys.SendWait(func + "{-}"); return;
-                case "=": SendKeys.SendWait(func + "{=}"); return;
-                case "[": SendKeys.SendWait(func + "{[}"); return;
-                case "]": SendKeys.SendWait(func + "{]}"); return;
-                case "\\": SendKeys.SendWait(func + "{\\}"); return;
-                case ";": SendKeys.SendWait(func + "{;}"); return;
-                case "'": SendKeys.SendWait(func + "{'}"); return;
-                case ",": SendKeys.SendWait(func + "{,}"); return;
-                case ".": SendKeys.SendWait(func + "{.}"); return;
-                case "/": SendKeys.SendWait(func + "{/}"); return;
-            }
         }
 
         /// <summary>
@@ -156,13 +148,19 @@ namespace Keyboard.Views.UserControls
         /// <param name="e"></param>
         private void Button_Lang_Click(object sender, RoutedEventArgs e)
         {
-            _currentInputIndex++;
-            if (_currentInputIndex >= _allInputs.Count)
-            {
-                _currentInputIndex = 0;
-            }
-            InputLanguage.CurrentInputLanguage = _allInputs[_currentInputIndex];
-            Button_Lang.Content = InputLanguage.CurrentInputLanguage.LayoutName;
+            _keyboard.KeyDown(VirtualKeyCode.CONTROL);
+            _keyboard.KeyPress(VirtualKeyCode.SHIFT);
+            _keyboard.KeyUp(VirtualKeyCode.CONTROL);
+        }
+
+        private void Button_LeftKey_Click(object sender, RoutedEventArgs e)
+        {
+            _keyboard.KeyPress(VirtualKeyCode.LEFT);
+        }
+
+        private void Button_RightKey_Click(object sender, RoutedEventArgs e)
+        {
+            _keyboard.KeyPress(VirtualKeyCode.RIGHT);
         }
     }
 }

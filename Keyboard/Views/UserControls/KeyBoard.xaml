@@ -1,9 +1,8 @@
 ﻿<UserControl x:Class="Keyboard.Views.UserControls.KeyBoard"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Keyboard.Views.UserControls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" FontSize="24"
              d:DesignHeight="360" d:DesignWidth="1000">
     <UserControl.Resources>
@@ -147,16 +146,16 @@
         <Grid Grid.Row="4" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Button_Ctrl" Content="Ctrl" Grid.Column="0" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click" />
-            <Button x:Name="Button_Lang" Content="切换输入法" Grid.Column="1" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Lang_Click" FontSize="20"/>
+            <!--<Button x:Name="Button_Ctrl" Content="Ctrl" Grid.Column="0" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click" />-->
+            <Button x:Name="Button_Lang" Content="切换输入法" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Lang_Click" FontSize="20" Grid.ColumnSpan="2"/>
             <Button Content=" " Grid.Column="2"  Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click" />
-            <Button Content="◀" Grid.Column="3" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
-            <Button Content="▶" Grid.Column="4" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_Key_Click"/>
+            <Button Content="◀" Grid.Column="3" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_LeftKey_Click"/>
+            <Button Content="▶" Grid.Column="4" Style="{DynamicResource KeyBoardButtonStyle1}" Click="Button_RightKey_Click"/>
         </Grid>
     </Grid>
 </UserControl>
