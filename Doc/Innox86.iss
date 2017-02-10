@@ -28,8 +28,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "..\bin\x86\Release\WebBrowserWPF.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\bin\x86\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\WebBrowser\bin\x86\Release\WebBrowserWPF.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\WebBrowser\bin\x86\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -38,6 +38,9 @@ Name: "{group}\{cm:ProgramOnTheWeb,平安力合浏览器}"; Filename: "http://p-an.com/
 Name: "{group}\{cm:UninstallProgram,平安力合浏览器}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\平安力合浏览器"; Filename: "{app}\WebBrowserWPF.exe"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\平安力合浏览器"; Filename: "{app}\WebBrowserWPF.exe"; Tasks: quicklaunchicon
+
+[Registry]
+Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "平安力合浏览器"; ValueData: """{app}\WebBrowserWPF.exe"""
 
 [Run]
 Filename: "{app}\WebBrowserWPF.exe"; Description: "{cm:LaunchProgram,平安力合浏览器}"; Flags: nowait postinstall skipifsilent
