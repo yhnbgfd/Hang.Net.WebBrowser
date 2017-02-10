@@ -1,11 +1,8 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using WindowsInput;
 using WindowsInput.Native;
-using F = System.Windows.Forms;
 
 namespace Keyboard.Views.UserControls
 {
@@ -23,51 +20,40 @@ namespace Keyboard.Views.UserControls
 
         private void Button_Key_Click(object sender, RoutedEventArgs e)
         {
-            var btn = sender as Button;
-            var c1 = btn.Content.ToString();
+            var c1 = (sender as Button).Content.ToString();
 
             //功能按键
             switch (c1)
             {
-                case "Backspace":
-                    _keyboard.KeyPress(VirtualKeyCode.BACK);
-                    return;
-                case "Tab":
-                    _keyboard.KeyPress(VirtualKeyCode.TAB);
-                    return;
+                case "Backspace": _keyboard.KeyPress(VirtualKeyCode.BACK); return;
+                case "Tab": _keyboard.KeyPress(VirtualKeyCode.TAB); return;
                 case "Caps":
-                    {
-                        _keyboard.KeyPress(VirtualKeyCode.CAPITAL);
+                    _keyboard.KeyPress(VirtualKeyCode.CAPITAL);
 
-                        isCaps = !isCaps;//改变按键颜色
-                        if (isCaps)
-                        {
-                            Button_Caps.Background = new SolidColorBrush(Color.FromRgb(148, 62, 189));
-                        }
-                        else
-                        {
-                            Button_Caps.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
-                        }
-                        return;
-                    }
-                case "Enter":
-                    _keyboard.KeyPress(VirtualKeyCode.RETURN);
-                    return;
-                case "Shift"://Shift由值按键触发时智能添加
+                    isCaps = !isCaps;//改变按键颜色
+                    if (isCaps)
                     {
-                        isShift = !isShift;
-                        if (isShift == true)
-                        {
-                            Button_Shift1.Background = new SolidColorBrush(Color.FromRgb(148, 62, 189));
-                            Button_Shift2.Background = new SolidColorBrush(Color.FromRgb(148, 62, 189));
-                        }
-                        else
-                        {
-                            Button_Shift1.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
-                            Button_Shift2.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
-                        }
-                        return;
+                        Button_Caps.Background = new SolidColorBrush(Color.FromRgb(148, 62, 189));
                     }
+                    else
+                    {
+                        Button_Caps.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
+                    }
+                    return;
+                case "Enter": _keyboard.KeyPress(VirtualKeyCode.RETURN); return;
+                case "Shift"://Shift由值按键触发时智能添加
+                    isShift = !isShift;
+                    if (isShift == true)
+                    {
+                        Button_Shift1.Background = new SolidColorBrush(Color.FromRgb(148, 62, 189));
+                        Button_Shift2.Background = new SolidColorBrush(Color.FromRgb(148, 62, 189));
+                    }
+                    else
+                    {
+                        Button_Shift1.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
+                        Button_Shift2.Background = new SolidColorBrush(Color.FromRgb(221, 221, 221));
+                    }
+                    return;
             }
 
             //值按键
