@@ -39,8 +39,8 @@ Name: "{group}\{cm:UninstallProgram,平安力合浏览器}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\平安力合浏览器"; Filename: "{app}\WebBrowserWPF.exe"; Tasks: desktopicon
 Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\平安力合浏览器"; Filename: "{app}\WebBrowserWPF.exe"; Tasks: quicklaunchicon
 
-[Registry]
-Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "平安力合浏览器"; ValueData: """{app}\WebBrowserWPF.exe"""
+;[Registry]
+;Root: HKCU; Subkey: "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "平安力合浏览器"; ValueData: """{app}\WebBrowserWPF.exe"""
 
 [Run]
 Filename: "{app}\WebBrowserWPF.exe"; Description: "{cm:LaunchProgram,平安力合浏览器}"; Flags: nowait postinstall skipifsilent

@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Button Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
+        <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -24,8 +24,9 @@
             <TextBlock Text="键盘" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" IsHitTestVisible="False" Foreground="White" />
         </Grid>
         <Popup x:Name="Popup_KeyBoard" Placement="Left">
-            <Grid Width="1000" Height="360" Background="#FFBFBFBF">
-                <UserControls:KeyBoard Margin="10" />
+            <Grid Width="1000" Height="360" Background="#FFBFBFBF" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+                <UserControls:KeyBoard Margin="10,50,10,10" />
+                <Button x:Name="Button_ClosePopup" Content="X" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40" Margin="0,5,10,0" Click="Button_ClosePopup_Click" />
             </Grid>
         </Popup>
     </Grid>

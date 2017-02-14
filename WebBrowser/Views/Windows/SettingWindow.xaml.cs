@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Security;
 using System.Windows;
@@ -36,6 +37,11 @@ namespace WebBrowserWPF.Views.Windows
 
             PasswordBox_Pwd.Focus();
             ReadUSBState();
+
+            var pwd = Ini.ReadValue("System", "Password");
+            var shutdownPwd = Ini.ReadValue("System", "ShutdownPassword");
+            TextBox_NewPassword.Text = pwd;
+            TextBox_ShitdownPassword.Text = shutdownPwd;
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)
@@ -53,10 +59,21 @@ namespace WebBrowserWPF.Views.Windows
         private void Button_ConfirmPassword_Click(object sender, RoutedEventArgs e)
         {
             var pwd = Ini.ReadValue("System", "Password");
+            var shutdownPwd = Ini.ReadValue("System", "ShutdownPassword");
             var input = TranslateToString(PasswordBox_Pwd.SecurePassword);
             if (input == pwd)
             {
                 Grid_Password.Visibility = Visibility.Collapsed;
+            }
+            else if (input == shutdownPwd)
+            {
+                Grid_Password.Visibility = Visibility.Collapsed;
+
+                TabItem_基础设置.Visibility = Visibility.Collapsed;
+                TabItem_网址设置.Visibility = Visibility.Collapsed;
+                TabItem_关闭电脑.Visibility = Visibility.Visible;
+
+                TabCtrl.SelectedItem = TabItem_关闭电脑;
             }
             else
             {
@@ -147,5 +164,22 @@ namespace WebBrowserWPF.Views.Windows
             PasswordBox_Pwd.Password = _password;
         }
 
+        private void Button_ChangeShutdownPassword_Click(object sender, RoutedEventArgs e)
+        {
+            Ini.WriteValue("System", "ShutdownPassword", TextBox_ShitdownPassword.Text.Trim());
+
+            MessageBox.Show("关机密码修改成功。");
+        }
+
+        private void Button_Shutdown_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("是否要关机？", "确认", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Process.Start("shutdown.exe", "-s -f");
+            }
+            else
+            {
+            }
+        }
     }
 }
