@@ -24,8 +24,7 @@ namespace Keyboard
 
             CustomPopupPlacement placement2 = new CustomPopupPlacement(new Point(0, -100), PopupPrimaryAxis.Horizontal);
 
-            CustomPopupPlacement[] ttplaces =
-                    new CustomPopupPlacement[] { placement1, placement2 };
+            CustomPopupPlacement[] ttplaces = new CustomPopupPlacement[] { placement1, placement2 };
             return ttplaces;
         }
 
