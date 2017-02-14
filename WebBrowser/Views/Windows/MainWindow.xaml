@@ -4,6 +4,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="平安力合" Height="768" Width="1024" Loaded="Window_Loaded" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Closed="Window_Closed" WindowStartupLocation="CenterScreen" Activated="Window_Activated" Topmost="True">
+        Title="平安力合" Height="768" Width="1024" Loaded="Window_Loaded" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Closed="Window_Closed" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
     <Grid x:Name="Grid_Main"/>
 </Window>

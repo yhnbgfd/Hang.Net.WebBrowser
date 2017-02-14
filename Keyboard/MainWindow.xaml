@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:UserControls="clr-namespace:Keyboard.Views.UserControls"
         mc:Ignorable="d"
-        Title="KeyBoardWindow" Height="5" Width="5" ResizeMode="NoResize"  Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" Focusable="False">
+        Title="KeyBoardWindow" Height="5" Width="5" Topmost="True" ResizeMode="NoResize" Background="#00FF6767" WindowStyle="None" Focusable="False">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Popup x:Name="Popup_Button" IsOpen="True" StaysOpen="True" Height="100" Width="100" Placement="Custom">
+        <Popup x:Name="Popup_Button" IsOpen="True" Height="100" Width="100" Placement="Custom" AllowsTransparency="True">
             <Grid >
                 <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
                 <Grid>
