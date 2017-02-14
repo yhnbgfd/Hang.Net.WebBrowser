@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
 namespace Keyboard
@@ -11,8 +12,21 @@ namespace Keyboard
         {
             InitializeComponent();
 
-            Top = SystemParameters.PrimaryScreenHeight - Height - 50;
-            Left = SystemParameters.PrimaryScreenWidth - Width - 50;
+            Top = SystemParameters.PrimaryScreenHeight - Height - 100;
+            Left = SystemParameters.PrimaryScreenWidth - Width - 150;
+
+            Popup_Button.CustomPopupPlacementCallback = new CustomPopupPlacementCallback(placePopup);
+        }
+
+        public CustomPopupPlacement[] placePopup(Size popupSize, Size targetSize, Point offset)
+        {
+            CustomPopupPlacement placement1 = new CustomPopupPlacement(new Point(0, -100), PopupPrimaryAxis.Vertical);
+
+            CustomPopupPlacement placement2 = new CustomPopupPlacement(new Point(0, -100), PopupPrimaryAxis.Horizontal);
+
+            CustomPopupPlacement[] ttplaces =
+                    new CustomPopupPlacement[] { placement1, placement2 };
+            return ttplaces;
         }
 
         private void Button_KeyBoard_Click(object sender, RoutedEventArgs e)
@@ -68,5 +82,6 @@ namespace Keyboard
         {
             Popup_KeyBoard.IsOpen = false;
         }
+
     }
 }

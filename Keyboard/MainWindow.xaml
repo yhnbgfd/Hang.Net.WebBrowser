@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:UserControls="clr-namespace:Keyboard.Views.UserControls"
         mc:Ignorable="d"
-        Title="KeyBoardWindow" Height="100" Width="100" ResizeMode="NoResize" Topmost="True" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" Focusable="False">
+        Title="KeyBoardWindow" Height="5" Width="5" ResizeMode="NoResize"  Background="{x:Null}" AllowsTransparency="True" WindowStyle="None" Focusable="False">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -14,19 +14,23 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
-        <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <TextBlock Text="屏幕" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="36" IsHitTestVisible="False" Foreground="White" />
-            <TextBlock Text="键盘" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" IsHitTestVisible="False" Foreground="White" />
-        </Grid>
+        <Popup x:Name="Popup_Button" IsOpen="True" StaysOpen="True" Height="100" Width="100" Placement="Custom">
+            <Grid >
+                <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="屏幕" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="36" IsHitTestVisible="False" Foreground="White" />
+                    <TextBlock Text="键盘" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" IsHitTestVisible="False" Foreground="White" />
+                </Grid>
+            </Grid>
+        </Popup>
         <Popup x:Name="Popup_KeyBoard" Placement="Left">
             <Grid Width="1000" Height="360" Background="#FFBFBFBF" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
                 <UserControls:KeyBoard Margin="10,50,10,10" />
-                <Button x:Name="Button_ClosePopup" Content="X" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40" Margin="0,5,10,0" Click="Button_ClosePopup_Click" />
+                <Button x:Name="Button_ClosePopup" Content="X" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40" Margin="0,5,10,0" Click="Button_ClosePopup_Click" Style="{DynamicResource KeyBoardButtonStyle1}"/>
             </Grid>
         </Popup>
     </Grid>
