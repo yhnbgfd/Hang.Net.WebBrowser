@@ -130,10 +130,6 @@
     <Compile Include="Views\Windows\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Themes\ButtonDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\TabItemDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -235,6 +231,10 @@
     <ProjectReference Include="..\Keyboard\Keyboard.csproj">
       <Project>{54ba3c5a-6ae1-424d-a7ad-c989fc6d8801}</Project>
       <Name>Keyboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wpf.Resources\Wpf.Resources.csproj">
+      <Project>{265063f5-b761-4a70-9cb3-962af676dde1}</Project>
+      <Name>Wpf.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

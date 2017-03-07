@@ -9,14 +9,14 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Keyboard;component/Themes/ButtonDictionary.xaml" />
+                <ResourceDictionary Source="/Wpf.Resources;component/Themes/ButtonDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Popup x:Name="Popup_Button" IsOpen="True" Height="100" Width="100" Placement="Custom" AllowsTransparency="True">
             <Grid >
-                <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle1}" Focusable="False"/>
+                <Button x:Name="Button_KeyBoard" Click="Button_KeyBoard_Click" BorderThickness="0" Style="{StaticResource ButtonStyle_贵州省农村信用社}" Focusable="False"/>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
