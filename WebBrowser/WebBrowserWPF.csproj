@@ -118,31 +118,13 @@
     <Compile Include="Views\Pages\BrowserPage1.xaml.cs">
       <DependentUpon>BrowserPage1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\KeyBoard.xaml.cs">
-      <DependentUpon>KeyBoard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\UserControls\WinFormWebBrowserUserControl.xaml.cs">
       <DependentUpon>WinFormWebBrowserUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Windows\KeyBoardWindow.xaml.cs">
-      <DependentUpon>KeyBoardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Themes\TabItemDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\UserControls\KeyBoard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\UserControls\WinFormWebBrowserUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\KeyBoardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

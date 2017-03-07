@@ -30,7 +30,7 @@ namespace WebBrowserWPF.Views.Pages
 
             ResourceDictionary rd = new ResourceDictionary()
             {
-                Source = new Uri(@"/WebBrowserWPF;component/Themes/TabItemDictionary.xaml", UriKind.RelativeOrAbsolute)
+                Source = new Uri(@"/Wpf.Resources;component/Themes/TabItemDictionary.xaml", UriKind.RelativeOrAbsolute)
             };
             Style mystyles = rd["TabItemStyle1"] as Style;
 
