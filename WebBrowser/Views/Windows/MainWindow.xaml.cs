@@ -14,7 +14,8 @@ namespace WebBrowserWPF.Views.Windows
 {
     public partial class MainWindow : Window
     {
-        private Timer _timerToClose;
+        private Timer _timerToCloseSystemWindow;
+        private Timer _timerToShutdown;
 
         public MainWindow()
         {
@@ -50,17 +51,43 @@ namespace WebBrowserWPF.Views.Windows
 
             Process.Start("Keyboard.exe");
 
-            _timerToClose = new Timer(CloseSystemWindow, null, 1000, 1000);
-
-        }
-
-        private void CloseSystemWindow(object state)
-        {
-            var ks = Process.GetProcessesByName("SystemSettings");
-            foreach (var k in ks)
+            _timerToCloseSystemWindow = new Timer((o) =>
             {
-                k.Kill();
-            }
+                var ks = Process.GetProcessesByName("SystemSettings");
+                foreach (var k in ks)
+                {
+                    k.Kill();
+                }
+            }, null, 1000, 1000);
+            _timerToShutdown = new Timer((o) =>
+            {
+                //判断是否自动关机
+                try
+                {
+                    var time = Ini.ReadValue("System", "AutoShutdownTime");
+                    if (!string.IsNullOrWhiteSpace(time))
+                    {
+                        var fullTime = DateTime.Now.ToString("yyyy-MM-dd ") + time;
+                        if (DateTime.TryParse(fullTime, out DateTime tt))
+                        {
+                            if (DateTime.Now >= tt)
+                            {
+                                Process.Start("shutdown", "/s /t 60");
+                                if (MessageBox.Show("60秒后将自动关闭计算机。\n点击【确定】取消自动关机。", "提示", MessageBoxButton.OK, MessageBoxImage.Warning) == MessageBoxResult.OK)
+                                {
+                                    Process.Start("shutdown", "/a");
+                                    _timerToShutdown.Change(Timeout.Infinite, Timeout.Infinite);
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    //_logger.Error(ex.ToString());
+                }
+            }, null, 1000, 1000 * 60);
         }
 
         private void Window_Closed(object sender, EventArgs e)
