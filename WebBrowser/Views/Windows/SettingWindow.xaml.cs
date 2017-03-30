@@ -42,6 +42,7 @@ namespace WebBrowserWPF.Views.Windows
             var shutdownPwd = Ini.ReadValue("System", "ShutdownPassword");
             TextBox_NewPassword.Text = pwd;
             TextBox_ShitdownPassword.Text = shutdownPwd;
+            TextBox_AutoShutdownTime.Text = Ini.ReadValue("System", "AutoShutdownTime");
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)
@@ -180,6 +181,13 @@ namespace WebBrowserWPF.Views.Windows
             else
             {
             }
+        }
+
+        private void Button_SaveAutoShutdownTime_Click(object sender, RoutedEventArgs e)
+        {
+            var time = TextBox_AutoShutdownTime.Text.Trim().Replace("：", ":");
+            Ini.WriteValue("System", "AutoShutdownTime", time);
+            MessageBox.Show("自动关机时间设置成功。");
         }
     }
 }

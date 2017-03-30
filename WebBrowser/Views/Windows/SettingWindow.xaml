@@ -38,6 +38,15 @@
                                 <TextBlock Text="* 修改USB后请重启电脑。"/>
                             </StackPanel>
                         </GroupBox>
+                        <GroupBox Header="自动关机设置" Margin="5" VerticalAlignment="Top">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" Margin="0,5">
+                                    <TextBlock Text="自动关机时间（HH:mm:ss）：" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="TextBox_AutoShutdownTime" Width="150" Margin="0,0,10,0" VerticalContentAlignment="Center" />
+                                    <Button x:Name="Button_SaveAutoShutdownTime" Content="修改" Padding="10,5" Click="Button_SaveAutoShutdownTime_Click"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
                     </StackPanel>
                     <Button x:Name="Button_CloseApp" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="关闭程序" Padding="25,10" FontSize="16" Click="Button_CloseApp_Click" Margin="0,0,0,10" />
                 </Grid>
