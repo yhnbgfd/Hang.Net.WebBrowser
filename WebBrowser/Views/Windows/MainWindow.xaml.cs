@@ -49,7 +49,7 @@ namespace WebBrowserWPF.Views.Windows
 
             //HookStart();
 
-            Process.Start("Keyboard.exe");
+            //Process.Start("Keyboard.exe");
 
             _timerToCloseSystemWindow = new Timer((o) =>
             {

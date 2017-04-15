@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         <Grid Margin="5">
             <StackPanel Margin="0" HorizontalAlignment="Left" Orientation="Horizontal" Height="80">
-                <Image Source="pack://siteoforigin:,,,/Resources/贵州省农村信用社.png" Margin="5,0"/>
+                <!--<Image Source="pack://siteoforigin:,,,/Resources/贵州省农村信用社.png" Margin="5,0"/>-->
                 <Button x:Name="Button_Home" Content="首页" Click="Button_Home_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle_贵州省农村信用社}"/>
                 <Button x:Name="Button_Refresh" Content="刷新" Click="Button_Refresh_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle_贵州省农村信用社}"/>
                 <Button x:Name="Button_GoBack" Content="后退" Click="Button_GoBack_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle_贵州省农村信用社}"/>
