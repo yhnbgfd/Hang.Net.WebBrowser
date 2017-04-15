@@ -21,20 +21,20 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Grid Margin="5">
+        <Grid Margin="5,5,5,0">
             <StackPanel Margin="0" HorizontalAlignment="Left" Orientation="Horizontal" Height="80">
                 <!--<Image Source="pack://siteoforigin:,,,/Resources/贵州省农村信用社.png" Margin="5,0"/>-->
-                <Button x:Name="Button_Home" Content="首页" Click="Button_Home_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle_贵州省农村信用社}"/>
-                <Button x:Name="Button_Refresh" Content="刷新" Click="Button_Refresh_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle_贵州省农村信用社}"/>
-                <Button x:Name="Button_GoBack" Content="后退" Click="Button_GoBack_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle_贵州省农村信用社}"/>
-                <Button x:Name="Button_GoForward" Content="前进" Click="Button_GoForward_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle_贵州省农村信用社}"/>
+                <Button x:Name="Button_Home" Content="首页" Click="Button_Home_Click" Margin="5" Padding="20,0"/>
+                <Button x:Name="Button_Refresh" Content="刷新" Click="Button_Refresh_Click" Margin="5" Padding="20,0"/>
+                <Button x:Name="Button_GoBack" Content="后退" Click="Button_GoBack_Click" Margin="5" Padding="20,0"/>
+                <Button x:Name="Button_GoForward" Content="前进" Click="Button_GoForward_Click" Margin="5" Padding="20,0"/>
             </StackPanel>
             <StackPanel Margin="0" HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button Visibility="Collapsed" x:Name="Button_Keyboard" Content="打开屏幕键盘" Click="Button_Keyboard_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle1}"/>
-                <Button x:Name="Button_Setting" Content="设置" Click="Button_Setting_Click" Margin="5" Padding="20,0" Style="{DynamicResource ButtonStyle_贵州省农村信用社}"/>
+                <Button x:Name="Button_Setting" Content="设置" Click="Button_Setting_Click" Margin="5" Padding="20,0"/>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1" Margin="0,5,0,0" Background="#FF019C41">
+        <Grid Grid.Row="1" Margin="0">
             <TabControl x:Name="TabControl_Main" Margin="0" Padding="0"/>
         </Grid>
         <Grid x:Name="Grid_Keyboard" Grid.Row="2"></Grid>

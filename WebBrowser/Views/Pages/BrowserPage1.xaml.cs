@@ -59,6 +59,7 @@ namespace WebBrowserWPF.Views.Pages
 
                         TabControl_Main.Items.Add(new TabItem()
                         {
+                            Height = 0,
                             Header = split[0],
                             Padding = new Thickness(15, 10, 15, 10),
                             Content = wb,
